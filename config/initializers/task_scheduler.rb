@@ -1,7 +1,7 @@
 require 'rufus/scheduler'
 scheduler = Rufus::Scheduler.new
 
-scheduler.every '1m' do
+scheduler.every '30m' do
 	require "net/http"
 	require "uri"
 	urls = ['http://kaffeine.herokuapp.com',
