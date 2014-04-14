@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
 
+ruby '2.1.0'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0'
 # Use SCSS for stylesheets
@@ -38,3 +40,4 @@ gem 'spring',        group: :development
 
 gem 'quiet_assets', :group => :development
 gem 'rufus-scheduler'
+gem 'rails_12factor'
