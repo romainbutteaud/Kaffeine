@@ -4,7 +4,8 @@ scheduler = Rufus::Scheduler.new
 scheduler.every '1m' do
 	require "net/http"
 	require "uri"
-	urls = ['http://followmeback.herokuapp.com',
+	urls = ['http://kaffeine.herokuapp.com',
+			'http://followmeback.herokuapp.com',
 			'http://viviio.herokuapp.com',
 			'http://bestyear.herokuapp.com',
 			'http://eifer.herokuapp.com',
