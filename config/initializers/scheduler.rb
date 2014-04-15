@@ -22,7 +22,7 @@ def ping_all
 	end
 end
 
-ping_all
+#ping_all
 s = Rufus::Scheduler.singleton
 s.every '30m' do
 	ping_all
