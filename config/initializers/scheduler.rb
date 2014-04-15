@@ -9,15 +9,21 @@ def ping name
 end
 
 def ping_register name
+	ping name
 	s = Rufus::Scheduler.singleton
 	s.every '30m' do
 		ping name
 	end
 end
 
-s = Rufus::Scheduler.singleton
-s.every '30m' do
+def ping_all
 	Site.all.each do |site|
 		ping site.name
 	end
+end
+
+ping_all
+s = Rufus::Scheduler.singleton
+s.every '30m' do
+	ping_all
 end

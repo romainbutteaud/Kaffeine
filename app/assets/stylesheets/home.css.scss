@@ -12,6 +12,7 @@ a {
 a:visited {}
 
 #content {
+	padding:50px;
 	text-align:center;
 	margin-top:75px;
 	font: 700 13px "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -50,7 +51,7 @@ a:visited {}
 
 	#url {
 		font-weight: 200;
-		margin-top:40px;
+		margin-top:30px;
 		font-size:2em;
 		input {
 			font-size:1em;
@@ -93,7 +94,7 @@ a:visited {}
 
 	#twitter {
 		position:absolute;
-		top:700px;
+		top:600px;
 		margin: 0 auto;
 		margin-left:-50px;
 		margin-bottom: 50px;
