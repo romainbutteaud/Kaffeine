@@ -7,7 +7,3 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Site.create(name: 'kaffeine')
-Site.create(name: 'followmeback')
-Site.create(name: 'viviio')
-Site.create(name: 'bestyear')
-Site.create(name: 'imaginariumfestival')

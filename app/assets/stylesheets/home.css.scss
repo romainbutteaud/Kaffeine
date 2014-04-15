@@ -3,17 +3,225 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .hide {
-	display:none
+	display:none;
 }
 
-#loader {
-	width:10px
+a {
+	color:rgb(63,184,232);
+}
+a:visited {}
+
+#content {
+	text-align:center;
+	margin-top:75px;
+	font: 700 13px "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color:#333;
+
+	#header {
+		margin-bottom:50px;
+		text-align:center;
+		#heroku {
+			width:300px;
+			margin-right:40px;
+		}
+		#plus {
+			position:absolute;
+			font-size: 5em;
+			margin-top:10px;
+		}
+		#coffee {
+			margin-left:70px;
+			font-size: 9em;
+		}
+	}
+
+
+	h1 {
+		font-weight: 200;
+		font-size:2em;
+		#brand {
+			font-weight: 800;
+		}
+	}
+
+	h3 {
+		font-size: 1.5em;
+	}
+
+	#url {
+		font-weight: 200;
+		margin-top:40px;
+		font-size:2em;
+		input {
+			font-size:1em;
+			width:300px;
+			height:40px;
+			border:none;
+			color: #333;
+			background-color: #FAFAFA;
+			padding-left:10px;
+		}
+		::-webkit-input-placeholder { /* WebKit browsers */
+			color: #CCC;
+			font-weight: 100;
+			font-size: 1em;
+		}
+		.regex-error {
+			border:1px solid #f55;
+		}
+		textarea, input { outline: none; }
+	}
+
+	#information {
+		margin-top:30px;
+		#loader {
+			width:15px
+		}
+	}
+
+	#register {
+		margin-top:30px;
+	}
+
+	#success, #already {
+		color:green
+	}
+
+	#failure, #failure-name {
+		color:red
+	}
+
+	#twitter {
+		position:absolute;
+		top:700px;
+		margin: 0 auto;
+		margin-left:-50px;
+		margin-bottom: 50px;
+	}
 }
 
-#success, #already {
-	color:green
+#register {
+	margin-top: 10px;
+	margin-right: 10px;
+	padding: 14px 26px;
+	font-size: 14px;
+	line-height: 100%;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.4);
+	color: #fff;
+	display:inline-block;
+	vertical-align: middle;
+	text-align: center;
+	cursor: pointer;
+	font-weight: bold;
+	transition: background 0.1s ease-in-out;
+	-webkit-transition: background 0.1s ease-in-out;
+	-moz-transition: background 0.1s ease-in-out;
+	-ms-transition: background 0.1s ease-in-out;
+	-o-transition: background 0.1s ease-in-out;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+	color: #fff;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	font-family: 'Helvetica Neue', Helvetica, sans-serif;
+}
+#register:active {
+	padding-top: 15px;
+	margin-bottom: -1px;
+}
+#register, #register:hover, #register:active {
+	outline: 0 none;
+	text-decoration: none;
+	color: #fff;
 }
 
-#failure {
-	color:red
+.button {
+	background-color: #3fb8e8;
+	box-shadow: 0px 3px 0px 0px #3293ba;
+}
+.button:hover {
+	background-color: #1baae3;
+}
+.button:active {
+	box-shadow: 0px 1px 0px 0px #3293ba;
+}
+
+
+
+/* Left will inherit from right (so we don't need to duplicate code) */
+.github-fork-ribbon {
+	/* The right and left classes determine the side we attach our banner to */
+	position: absolute;
+
+	/* Add a bit of padding to give some substance outside the "stitching" */
+	padding: 2px 0;
+
+	/* Set the base colour */
+	background-color: #333;
+
+	/* Set a gradient: transparent black at the top to almost-transparent black at the bottom */
+	background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.15)));
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15));
+	background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15));
+	background-image: -ms-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15));
+	background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15));
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15));
+
+	/* Add a drop shadow */
+	-webkit-box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.5);
+	box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.5);
+
+	z-index: 9999;
+	pointer-events: auto;
+}
+
+.github-fork-ribbon a,
+.github-fork-ribbon a:hover {
+	/* Set the font */
+	font: 700 13px "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #fff;
+
+	/* Set the text properties */
+	text-decoration: none;
+	text-shadow: 0 -1px rgba(0, 0, 0, 0.5);
+	text-align: center;
+
+/* Set the geometry. If you fiddle with these you'll also need
+to tweak the top and right values in .github-fork-ribbon. */
+width: 200px;
+line-height: 20px;
+
+/* Set the layout properties */
+display: inline-block;
+padding: 2px 0;
+
+/* Add "stitching" effect */
+border-width: 1px 0;
+border-style: dotted;
+border-color: #fff;
+border-color: rgba(255, 255, 255, 0.7);
+}
+
+.github-fork-ribbon-wrapper {
+	width: 150px;
+	height: 150px;
+	position: absolute;
+	overflow: hidden;
+	top: 0;
+	z-index: 9999;
+	pointer-events: none;
+}
+.github-fork-ribbon-wrapper.right {
+	right: 0;
+}
+
+.github-fork-ribbon-wrapper.right .github-fork-ribbon {
+	top: 42px;
+	right: -43px;
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+	transform: rotate(45deg);
 }

@@ -3,6 +3,8 @@ class HomeController < ApplicationController
 	end
 
 	def register
+
+		### TODO: Regex check
 		site = Site.where(:name => params[:name])
 		if site = site.first
 			render json: {}, status: 201
