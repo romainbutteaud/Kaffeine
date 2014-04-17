@@ -12,4 +12,9 @@ class HomeController < ApplicationController
 			render json: {}, status: 200
 		end
 	end
+
+	def reload
+		ping_all
+		render :index
+	end
 end
