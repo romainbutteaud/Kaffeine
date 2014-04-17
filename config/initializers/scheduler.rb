@@ -1,29 +1,21 @@
 require 'rufus-scheduler'
 require "net/http"
 require "uri"
+require 'rake'
 
-def ping name
-	url = "http://#{name}.herokuapp.com"
-	Rails.logger.info "ping #{Time.now} #{url}"
-	Net::HTTP.get_response(URI.parse(url))
-end
+Kaffeine::Application.load_tasks
 
-def ping_register name
-	ping name
-	s = Rufus::Scheduler.singleton
-	s.every '30m' do
-		ping name
-	end
+def ping_last
+	Rake::Task['scheduler:ping_last'].reenable
+	Rake::Task['scheduler:ping_last'].invoke
 end
 
 def ping_all
-	Site.all.each do |site|
-		ping site.name
-	end
+	Rake::Task['scheduler:ping_all'].reenable
+	Rake::Task['scheduler:ping_all'].invoke
 end
 
-#ping_all
-s = Rufus::Scheduler.singleton
+s = Rufus::Scheduler.new
 s.every '30m' do
 	ping_all
 end

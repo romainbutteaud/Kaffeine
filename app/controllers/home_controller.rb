@@ -8,7 +8,7 @@ class HomeController < ApplicationController
 			render json: {}, status: 201
 		else
 			site = Site.where(:name => params[:name]).create
-			ping_register site.name
+			ping_last
 			render json: {}, status: 200
 		end
 	end

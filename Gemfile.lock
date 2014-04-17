@@ -132,6 +132,7 @@ DEPENDENCIES
   quiet_assets
   rails (= 4.1.0)
   rails_12factor
+  rake
   rufus-scheduler
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
