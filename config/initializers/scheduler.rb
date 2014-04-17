@@ -16,6 +16,6 @@ def ping_all
 end
 
 s = Rufus::Scheduler.new
-s.every '30m' do
+s.every '1m' do
 	ping_all
 end
