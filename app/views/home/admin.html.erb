@@ -1,0 +1,6 @@
+<% count = 0 %>
+<% @sites.each do |site| %>
+	<% count += 1 %>
+	<%= "##{count} "%>
+	<%= link_to site.name, "http://#{site.name}.herokuapp.com" %><br>
+<% end %>
