@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'home/index'
   post 'register' => 'home#register'
   get 'reload' => 'home#reload'
+  get 'admin' => 'home#admin'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

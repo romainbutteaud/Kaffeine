@@ -42,3 +42,4 @@ gem 'quiet_assets', :group => :development
 gem 'rufus-scheduler'
 gem 'rails_12factor', :group => :production
 gem 'font-awesome-rails'
+gem 'figaro'

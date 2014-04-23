@@ -38,6 +38,9 @@ GEM
     coffee-script-source (1.7.0)
     erubis (2.7.0)
     execjs (2.0.2)
+    figaro (0.7.0)
+      bundler (~> 1.0)
+      rails (>= 3, < 5)
     font-awesome-rails (4.0.3.1)
       railties (>= 3.2, < 5.0)
     hike (1.2.3)
@@ -125,6 +128,7 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
+  figaro
   font-awesome-rails
   jbuilder (~> 2.0)
   jquery-rails
