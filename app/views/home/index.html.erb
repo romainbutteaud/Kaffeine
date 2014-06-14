@@ -1,9 +1,3 @@
-<div class="github-fork-ribbon-wrapper right">
-	<div class="github-fork-ribbon">
-		<a href="https://github.com/RomainButteaud/Kaffeine" target="_blank">Fork me on GitHub</a>
-	</div>
-</div>
-
 <div id="content">
 
 	<div id="header">
@@ -31,5 +25,11 @@
 		<div id="success" class="info hide"><%= fa_icon("check") %> Awesome, your app will never fell asleep again :)</div>
 	</div>
 
-	<a href="https://twitter.com/share" id="twitter" class="twitter-share-button social" data-text="Give Caffeine to Heroku apps">Tweet</a>
+	<div id="footer">
+		<span id="info">Already <span id="count" data-count="<%=@count%>"><%= @count %></span> websites love Kaffeine, thanks for sharing!</span>
+		<div id="social">
+			<a id="twitter" class="twitter-share-button social" href="https://twitter.com/share" data-text="Prevent your free Heroku app from ever falling asleep again"></a>
+			<iframe id="github" src="http://ghbtns.com/github-btn.html?user=RomainButteaud&repo=Kaffeine&type=watch&count=true" height="30" width="118" frameborder="0" scrolling="0" style="width:118px; height: 30px;" allowTransparency="true"></iframe>
+		</div>
+	</div>
 </div>

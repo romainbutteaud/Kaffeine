@@ -7,6 +7,7 @@ class HomeController < ApplicationController
 	end 
 
 	def index
+		@count = Site.count 
 	end
 
 	def register
