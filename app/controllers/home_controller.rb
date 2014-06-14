@@ -18,11 +18,6 @@ class HomeController < ApplicationController
 		end
 	end
 
-	def reload
-		ping_all
-		render :index
-	end
-
 	def admin
 		authenticate
 		@sites = Site.all.order("id asc")

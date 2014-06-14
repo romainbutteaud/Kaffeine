@@ -15,6 +15,7 @@ def ping_all
 	Rake::Task['scheduler:ping_all'].invoke
 end
 
+ping_all
 s = Rufus::Scheduler.new
 s.every '30m' do
 	ping_all
