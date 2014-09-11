@@ -1,3 +1,4 @@
 == README
 
-Keeping Heroku apps awake. http://kaffeine.herokuapp.com
+Prevent your free Heroku app from ever falling asleep again.
+Just add yours here: http://kaffeine.herokuapp.com
