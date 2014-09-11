@@ -14,7 +14,10 @@ class HomeController < ApplicationController
 		if Site.where(:name => params[:name]).first
 			render json: {}, status: 201
 		else Site.create(:name => params[:name])
-			ping_last
+			#ping_last
+			url = "http://#{params[:name]}.herokuapp.com"
+			Rails.logger.info "ping #{Time.now} #{url}"
+			Net::HTTP.get_response(URI.parse(url))
 			render json: {}, status: 200
 		end
 	end

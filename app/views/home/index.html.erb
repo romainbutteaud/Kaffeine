@@ -6,7 +6,7 @@
 		<%= fa_icon "coffee", id: "coffee" %>
 	</div>
 
-	<h1><span id="brand">Kaffeine</span> pings your Heroku app every 30 minutes so it will never go to sleep* (<a href="https://blog.heroku.com/archives/2013/6/20/app_sleeping_on_heroku" target="_blank">read more</a>)</h1>
+	<h1><span id="brand">Kaffeine</span> pings your Heroku app every 10 minutes so it will never go to sleep* (<a href="https://blog.heroku.com/archives/2013/6/20/app_sleeping_on_heroku" target="_blank">read more</a>)</h1>
 
 	<h3> Add yours: </h3>
 
@@ -15,14 +15,15 @@
 		<input id="register-input" type="text" placeholder="app name..."></input>
 		<span id="com">.herokuapp.com</span>
 	</div>
-	<a id="register" class="button">Give my app a caffeine shot every 30 minutes <%= fa_icon("coffee") %></a>
+	<a id="register" class="button">Give my app a caffeine shot every 10 minutes <%= fa_icon("coffee") %></a>
 
 	<div id="information">
 		<%= image_tag "loader.gif", id: "loader", class: "loader hide" %>
-		<div id="failure" class="info hide">Something went wrong <%= fa_icon("thumbs-down") %></div>
-		<div id="failure-name" class="info hide">It can only contain letters, numbers, and dashes. <%= fa_icon("thumbs-down") %></div>
-		<div id="already" class="info hide">App already added <%= fa_icon("thumbs-up") %></div>
-		<div id="success" class="info hide"><%= fa_icon("check") %> Awesome, your app will never fell asleep again :)</div>
+		<div id="failure" class="info hide failure"><%= fa_icon("thumbs-down") %> Something went wrong.</div>
+		<div id="failure-regex" class="info hide failure"><%= fa_icon("thumbs-down") %> It can only contain letters, numbers, and dashes.</div>
+		<div id="failure-name" class="info hide failure"><%= fa_icon("thumbs-down") %> The string needs to be under 30 characters.</div>
+		<div id="already" class="info hide success"><%= fa_icon("thumbs-up") %> App already added</div>
+		<div id="success" class="info hide success"><%= fa_icon("check") %> Awesome, your app will never fell asleep again :)</div>
 	</div>
 
 	<div id="footer">

@@ -125,11 +125,11 @@ a:visited {}
 		}
 	}
 
-	#success, #already {
+	.success {
 		color:green
 	}
 
-	#failure, #failure-name {
+	.failure {
 		color:red
 	}
 

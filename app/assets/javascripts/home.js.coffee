@@ -7,7 +7,15 @@ jQuery ->
 		$('.info').hide()
 		regex = /^[a-zA-Z0-9\-]+$/
 		name = $('#register-input').val().toLowerCase().trim();
-		if (regex.test(name))
+		if name.length > 30
+			ga('send', 'event', 'Error', 'Name', name)
+			$('#failure-name').fadeIn()
+			$('#register-input').addClass('regex-error')
+		else if !regex.test(name)
+			ga('send', 'event', 'Error', 'Name', name)
+			$('#failure-regex').fadeIn()
+			$('#register-input').addClass('regex-error')
+		else
 			$('#loader').show()
 			$('#register-input').removeClass('regex-error')
 			ga('send', 'event', 'Registration', 'Name', name)
@@ -32,8 +40,4 @@ jQuery ->
 						$('#count').addClass('count-change')
 					)
 				ga('send', 'event', 'Registration', 'Success')
-		else
-			ga('send', 'event', 'Error', 'Name', name)
-			$('#failure-name').fadeIn()
-			$('#register-input').addClass('regex-error')
 	))
