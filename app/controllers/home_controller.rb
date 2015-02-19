@@ -11,7 +11,7 @@ class HomeController < ApplicationController
 	end
 
 	def register
-		if Site.where(:name => params[:name]).first
+		if Site.find_by_name(params[:name])
 			render json: {}, status: 201
 		else Site.create(:name => params[:name])
 			url = "http://#{params[:name]}.herokuapp.com"
