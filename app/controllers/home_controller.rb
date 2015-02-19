@@ -4,10 +4,10 @@ class HomeController < ApplicationController
 		authenticate_or_request_with_http_basic do |username, password|
 			username == "#{ENV['ADMIN_LOGIN']}" && password == "#{ENV['ADMIN_PASSWORD']}"
 		end
-	end 
+	end
 
 	def index
-		@count = Site.count 
+		@count = Site.count
 	end
 
 	def register
@@ -19,6 +19,12 @@ class HomeController < ApplicationController
 			Net::HTTP.get_response(URI.parse(url))
 			render json: {}, status: 200
 		end
+	end
+
+	def decaf
+		@site = Site.find_by_name(params[:name])
+		@site.destroy
+		render json: @site
 	end
 
 	def admin
