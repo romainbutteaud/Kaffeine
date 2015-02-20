@@ -23,8 +23,12 @@ class HomeController < ApplicationController
 
 	def decaf
 		@site = Site.find_by_name(params[:name])
-		@site.destroy
-		render json: @site
+		if @site
+			@site.destroy
+			render json: @site
+		else
+			render json: {}, status: 201
+		end
 	end
 
 	def admin

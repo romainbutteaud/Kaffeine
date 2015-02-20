@@ -16,7 +16,8 @@
 		<span id="com">.herokuapp.com</span>
 	</div>
 	<a id="register" class="button">Give my app a caffeine shot every 10 minutes <%= fa_icon("coffee") %></a>
-
+	<br/>
+	<a id="unregister" class="button alert">Decaf <%= fa_icon("coffee") %></a>
 	<div id="information">
 		<%= image_tag "loader.gif", id: "loader", class: "loader hide" %>
 		<div id="failure" class="info hide failure"><%= fa_icon("thumbs-down") %> Something went wrong.</div>
@@ -24,6 +25,8 @@
 		<div id="failure-name" class="info hide failure"><%= fa_icon("thumbs-down") %> The string needs to be under 30 characters.</div>
 		<div id="already" class="info hide success"><%= fa_icon("thumbs-up") %> App already added</div>
 		<div id="success" class="info hide success"><%= fa_icon("check") %> Awesome, your app will never fall asleep again :)</div>
+		<div id="already-removed" class="info hide success"><%= fa_icon("thumbs-up") %> App not found or already deleted</div>
+		<div id="success-removed" class="info hide success"><%= fa_icon("check") %> Your app will fall asleep again :)</div>
 	</div>
 
 	<div id="footer">
