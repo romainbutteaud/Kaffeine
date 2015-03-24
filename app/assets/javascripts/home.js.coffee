@@ -6,18 +6,18 @@ jQuery ->
 	$(document).on('click', '#unregister', ( ->
 		$('.info').hide()
 		regex = /^[a-zA-Z0-9\-]+$/
-		name = $('#register-input').val().toLowerCase().trim();
+		name = $('#unregister-input').val().toLowerCase().trim();
 		if name.length > 30
 			ga('send', 'event', 'Error', 'Name', name)
 			$('#failure-name').fadeIn()
-			$('#register-input').addClass('regex-error')
+			$('#unregister-input').addClass('regex-error')
 		else if !regex.test(name)
 			ga('send', 'event', 'Error', 'Name', name)
 			$('#failure-regex').fadeIn()
-			$('#register-input').addClass('regex-error')
+			$('#unregister-input').addClass('regex-error')
 		else
 			$('#loader').show()
-			$('#register-input').removeClass('regex-error')
+			$('#unregister-input').removeClass('regex-error')
 			ga('send', 'event', 'Unregister', 'Name', name)
 			$.ajax '/decaf/',
 			type: 'POST'
