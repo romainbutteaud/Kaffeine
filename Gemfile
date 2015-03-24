@@ -1,4 +1,7 @@
 source 'https://rubygems.org'
+source 'https://rails-assets.org' do
+  gem 'rails-assets-css-modal'
+end
 
 ruby '2.2.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
