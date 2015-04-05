@@ -10,8 +10,8 @@
 
 	<h3> Add yours: </h3>
 
-	<div id="url">
-		<span id="http">http://</span>
+	<div class="url">
+		<span class="http">http://</span>
 		<input id="register-input" type="text" placeholder="app name..."></input>
 		<span id="com">.herokuapp.com</span>
 	</div>
@@ -24,13 +24,34 @@
 		<div id="failure-name" class="info hide failure"><%= fa_icon("thumbs-down") %> The string needs to be under 30 characters.</div>
 		<div id="already" class="info hide success"><%= fa_icon("thumbs-up") %> App already added</div>
 		<div id="success" class="info hide success"><%= fa_icon("check") %> Awesome, your app will never fall asleep again :)</div>
+		<div id="already-removed" class="info hide success"><%= fa_icon("thumbs-up") %> App not found or already deleted</div>
+		<div id="success-removed" class="info hide success"><%= fa_icon("check") %> Your app will fall asleep again :)</div>
 	</div>
 
 	<div id="footer">
 		<span id="info">Already <span id="count" data-count="<%=@count%>"><%= @count %></span> websites love Kaffeine, thanks for sharing!</span>
+		<div>
+			<a href="#decafModal">Decaf <%= fa_icon("coffee") %></a>
+		</div>
 		<div id="social">
 			<a id="twitter" class="twitter-share-button social" href="https://twitter.com/share" data-text="Prevent your free Heroku app from ever falling asleep again"></a>
 			<iframe id="github" src="http://ghbtns.com/github-btn.html?user=RomainButteaud&repo=Kaffeine&type=watch&count=true" height="30" width="118" frameborder="0" scrolling="0" style="width:118px; height: 30px;" allowTransparency="true"></iframe>
 		</div>
 	</div>
+	<section class="modal--show" id="decafModal" tabindex="-1" role="dialog" aria-labelledby="modal-label" aria-hidden="true">
+		<div class="modal-inner">
+			<header id="modal-label">Decaf your App</header>
+			<div class="modal-content">
+				<h2>Remove your herokuapp from <span id="brand">Kaffeine</span>.</h2>
+				<div class="url">
+					<span class="http">http://</span>
+					<input id="unregister-input" type="text" placeholder="app name..."></input>
+					<span id="com">.herokuapp.com</span>
+				</div>
+				<a href="#!" id="unregister" class="button alert" data-close="Close" data-dismiss="decafModal">Decaf <%= fa_icon("coffee") %></a>
+			</div>
+		</div>
+
+		<a href="#!" class="modal-close" title="Close this modal" data-close="Close" data-dismiss="decafModal">?</a>
+	</section>
 </div>

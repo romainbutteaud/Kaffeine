@@ -47,7 +47,7 @@ a:visited {}
 		font-weight: 600;
 	}
 
-	#url {
+	.url {
 		font-weight: 200;
 		margin-top:30px;
 		font-size:2em;
@@ -73,48 +73,53 @@ a:visited {}
 		}
 	}
 
-
-	#register {
-		margin-top: 30px;
-		padding: 14px 26px;
-		font-size: 16px;
-		line-height: 100%;
-		display:inline-block;
-		cursor: pointer;
-		color: #fff;
-
-		transition: background 0.1s ease-in-out;
-		-webkit-transition: background 0.1s ease-in-out;
-		-moz-transition: background 0.1s ease-in-out;
-		-ms-transition: background 0.1s ease-in-out;
-		-o-transition: background 0.1s ease-in-out;
-
-		-webkit-border-radius: 3px;
-		-moz-border-radius: 3px;
-		border-radius: 3px;
-	}
-
 	#register:active {
-		padding-top: 15px;
 		margin-bottom: -1px;
-	}
-
-	#register, #register:hover, #register:active {
-		outline: 0 none;
-		text-decoration: none;
+		padding-top: 15px;
 	}
 
 	.button {
+		-moz-border-radius: 3px;
+		-webkit-border-radius: 3px;
+		border-radius: 3px;
+		-moz-transition: background .1s ease-in-out;
+		-ms-transition: background .1s ease-in-out;
+		-o-transition: background .1s ease-in-out;
+		-webkit-transition: background .1s ease-in-out;
+		transition: background .1s ease-in-out;
 		background-color: #3fb8e8;
-		box-shadow: 0px 3px 0px 0px #3293ba;
-	}
-	.button:hover {
-		background-color: #1baae3;
-	}
-	.button:active {
-		box-shadow: 0px 1px 0px 0px #3293ba;
+		box-shadow: 0 3px 0 0 #3293ba;
+		color: #fff;
+		cursor: pointer;
+		display: inline-block;
+		font-size: 16px;
+		line-height: 100%;
+		margin-top: 30px;
+		outline: 0 none;
+		padding: 14px 26px;
+		text-decoration: none;
+
+		&:hover {
+			background-color: #1baae3;
+		}
+
+		&:active {
+			box-shadow: 0 1px 0 0 #3293ba;
+		}
 	}
 
+	.alert {
+		background-color: #ff3e15;
+		box-shadow: 0 3px 0 0 #a41d00;
+
+		&:hover {
+			background-color: #eb2900;
+		}
+
+		&:active {
+			box-shadow: 0 1px 0 0 #a41d00;
+		}
+	}
 	#information {
 		height:60px;
 		margin-top:30px;
