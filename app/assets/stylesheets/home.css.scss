@@ -120,12 +120,12 @@ a:visited {}
 			box-shadow: 0 1px 0 0 #a41d00;
 		}
 	}
-	#information {
-		height:60px;
+	.information {
+		height:40px;
 		margin-top:30px;
 
-		#loader {
-			position:absolute;
+		.loader {
+			position:relative;
 			height:15px
 		}
 	}
@@ -139,6 +139,7 @@ a:visited {}
 	}
 
 	#footer {
+		margin-top: 50px;
 		#info {
 			font-weight: 400;
 			#count {
@@ -147,6 +148,10 @@ a:visited {}
 			.count-change {
 				color:green;
 			}
+		}
+
+		#unregister-link {
+			font-style: italic;
 		}
 
 		#social {

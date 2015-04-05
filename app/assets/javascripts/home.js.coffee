@@ -16,7 +16,7 @@ jQuery ->
 			$('#failure-regex').fadeIn()
 			$('#unregister-input').addClass('regex-error')
 		else
-			$('#loader').show()
+			$('#loader_decaf').show()
 			$('#unregister-input').removeClass('regex-error')
 			ga('send', 'event', 'Unregister', 'Name', name)
 			$.ajax '/decaf/',
@@ -25,11 +25,11 @@ jQuery ->
 				name: name
 				'_method': 'delete'
 			error: (jqXHR) ->
-				$('#loader').fadeOut()
+				$('#loader_decaf').fadeOut()
 				$('#failure').fadeIn()
 				ga('send', 'event', 'Unregister', 'Error')
 			success: (data, textStatus, jqXHR) ->
-				$('#loader').fadeOut()
+				$('#loader_decaf').fadeOut()
 				if jqXHR.status == 201
 					$('#already-removed').fadeIn()
 				else
