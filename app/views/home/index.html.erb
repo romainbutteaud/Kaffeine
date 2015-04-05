@@ -6,7 +6,7 @@
 		<%= fa_icon "coffee", id: "coffee" %>
 	</div>
 
-	<h1><span id="brand">Kaffeine</span> pings your Heroku app every 10 minutes so it will never go to sleep* (<a href="https://blog.heroku.com/archives/2013/6/20/app_sleeping_on_heroku" target="_blank">read more</a>)</h1>
+	<h1><span id="brand">Kaffeine</span> pings your Heroku app every 30 minutes so it will never go to sleep* (<a href="https://blog.heroku.com/archives/2013/6/20/app_sleeping_on_heroku" target="_blank">read more</a>)</h1>
 
 	<h3> Add yours: </h3>
 
@@ -15,7 +15,7 @@
 		<input id="register-input" type="text" placeholder="app name..."></input>
 		<span id="com">.herokuapp.com</span>
 	</div>
-	<a id="register" class="button">Give my app a caffeine shot every 10 minutes <%= fa_icon("coffee") %></a>
+	<a id="register" class="button">Give my app a caffeine shot every 30 minutes <%= fa_icon("coffee") %></a>
 
 	<div class="information">
 		<div id="failure" class="info hide failure"><%= fa_icon("thumbs-down") %> Something went wrong.</div>
@@ -28,14 +28,14 @@
 
 	<div id="footer">
 		<span id="info">Already <span id="count" data-count="<%=@count%>"><%= @count %></span> websites love Kaffeine, thanks for sharing!
-		<a href="#decafModal" id="unregister-link">remove your app?</a></span>
+		<a href="#decaf" id="unregister-link">remove your app?</a></span>
 		<div id="social">
 			<a id="twitter" class="twitter-share-button social" href="https://twitter.com/share" data-text="Prevent your free Heroku app from ever falling asleep again"></a>
 			<iframe id="github" src="http://ghbtns.com/github-btn.html?user=RomainButteaud&repo=Kaffeine&type=watch&count=true" height="30" width="118" frameborder="0" scrolling="0" style="width:118px; height: 30px;" allowTransparency="true"></iframe>
 		</div>
 	</div>
 
-	<section class="modal--show" id="decafModal" tabindex="-1" role="dialog" aria-labelledby="modal-label" aria-hidden="true">
+	<section class="modal--show" id="decaf" tabindex="-1" role="dialog" aria-labelledby="modal-label" aria-hidden="true">
 		<div class="modal-inner">
 			<div class="modal-content">
 				<h2>Remove your app from <span id="brand">Kaffeine</span>.</h2>
@@ -52,6 +52,6 @@
 				</div>
 			</div>
 		</div>
-		<a href="#!" class="modal-close" title="Close this modal" data-close="Close" data-dismiss="decafModal"></a>
+		<a href="#!" class="modal-close" title="Close this modal" data-close="Close" data-dismiss="decaf"></a>
 	</section>
 </div>
