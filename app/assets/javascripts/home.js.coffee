@@ -72,8 +72,11 @@ jQuery ->
 	$(document).on('click', '#register', ( ->
 		$('.info').hide()
 		regex = /^[a-zA-Z0-9\-]+$/
+    timeregex = /^[0-2][0-9]\:[0-5][0-9]/
 		name = $('#register-input').val().toLowerCase().trim();
-  time = $('#register-time').val();
+  bedtime = $('#register-time').val();
+  sleep = $('#register-sleep').val();
+  
   console.log "hi"
   console.log time
 		if name.length > 30
@@ -84,7 +87,8 @@ jQuery ->
 			ga('send', 'event', 'Error', 'Name', name)
 			$('#failure-regex').fadeIn()
 			$('#register-input').addClass('regex-error')
-		else if !time
+		else if !sleep
+   console.log "sleep is false"  
 			$('#loader').show()
 			$('#register-input').removeClass('regex-error')
 			ga('send', 'event', 'Registration', 'Name', name)
@@ -93,7 +97,7 @@ jQuery ->
 			data:
 				name: name
     nap: false
-    time: "00:00"
+    bedtime: "00:00"
 			error: (jqXHR) ->
 				$('#loader').fadeOut()
 				$('#failure').fadeIn()
@@ -111,7 +115,12 @@ jQuery ->
 						$('#count').addClass('count-change')
 					)
 				ga('send', 'event', 'Registration', 'Success')
+  else if !timeregex.test(bedtime)
+			ga('send', 'event', 'Error', 'Bedtime', bedtime)
+			$('#failure-time-regex').fadeIn()
+			$('#register-input').addClass('regex-error')
   else
+   console.log "sleep is true"
 			$('#loader').show()
 			$('#register-input').removeClass('regex-error')
 			ga('send', 'event', 'Registration', 'Name', name)
@@ -120,7 +129,7 @@ jQuery ->
 			data:
 				name: name
     nap: true
-    time: time
+    bedtime: bedtime
 			error: (jqXHR) ->
 				$('#loader').fadeOut()
 				$('#failure').fadeIn()
