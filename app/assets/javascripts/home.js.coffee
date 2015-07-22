@@ -15,8 +15,34 @@ jQuery ->
 			ga('send', 'event', 'Error', 'Name', name)
 			$('#failure-regex').fadeIn()
 			$('#unregister-input').addClass('regex-error')
-		else
+		else if !time
 			$('#loader_decaf').show()
+			$('#unregister-input').removeClass('regex-error')
+			ga('send', 'event', 'Unregister', 'Name', name)
+			$.ajax '/decaf/',
+			type: 'POST'
+			data:
+				name: name
+				'_method': 'delete'
+			error: (jqXHR) ->
+				$('#loader_decaf').fadeOut()
+				$('#failure').fadeIn()
+				ga('send', 'event', 'Unregister', 'Error')
+			success: (data, textStatus, jqXHR) ->
+				$('#loader_decaf').fadeOut()
+				if jqXHR.status == 201
+					$('#already-removed').fadeIn()
+				else
+					$('#success-removed').fadeIn()
+					new_count = $('#count').data('count') - 1
+					$('#count').data('count', new_count)
+					$('#count').fadeOut(500).fadeIn(500, ->
+						$('#count').html(new_count)
+						$('#count').addClass('count-change')
+					)
+				ga('send', 'event', 'Unregister', 'Success')
+  else
+   $('#loader_decaf').show()
 			$('#unregister-input').removeClass('regex-error')
 			ga('send', 'event', 'Unregister', 'Name', name)
 			$.ajax '/decaf/',
@@ -47,6 +73,9 @@ jQuery ->
 		$('.info').hide()
 		regex = /^[a-zA-Z0-9\-]+$/
 		name = $('#register-input').val().toLowerCase().trim();
+  time = $('#register-time').val();
+  console.log "hi"
+  console.log time
 		if name.length > 30
 			ga('send', 'event', 'Error', 'Name', name)
 			$('#failure-name').fadeIn()
@@ -55,7 +84,7 @@ jQuery ->
 			ga('send', 'event', 'Error', 'Name', name)
 			$('#failure-regex').fadeIn()
 			$('#register-input').addClass('regex-error')
-		else
+		else if !time
 			$('#loader').show()
 			$('#register-input').removeClass('regex-error')
 			ga('send', 'event', 'Registration', 'Name', name)
@@ -63,6 +92,8 @@ jQuery ->
 			type: 'POST'
 			data:
 				name: name
+    nap: false
+    time: "00:00"
 			error: (jqXHR) ->
 				$('#loader').fadeOut()
 				$('#failure').fadeIn()
@@ -80,4 +111,32 @@ jQuery ->
 						$('#count').addClass('count-change')
 					)
 				ga('send', 'event', 'Registration', 'Success')
+  else
+			$('#loader').show()
+			$('#register-input').removeClass('regex-error')
+			ga('send', 'event', 'Registration', 'Name', name)
+			$.ajax '/register',
+			type: 'POST'
+			data:
+				name: name
+    nap: true
+    time: time
+			error: (jqXHR) ->
+				$('#loader').fadeOut()
+				$('#failure').fadeIn()
+				ga('send', 'event', 'Registration', 'Error')
+			success: (data, textStatus, jqXHR) ->
+				$('#loader').fadeOut()
+				if jqXHR.status == 201
+					$('#already').fadeIn()
+				else
+					$('#success').fadeIn()
+					new_count = $('#count').data('count') + 1
+					$('#count').data('count', new_count)
+					$('#count').fadeOut(500).fadeIn(500, ->
+						$('#count').html(new_count)
+						$('#count').addClass('count-change')
+					)
+				ga('send', 'event', 'Registration', 'Success')
+                 
 	))
