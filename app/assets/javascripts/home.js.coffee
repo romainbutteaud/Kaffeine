@@ -75,7 +75,7 @@ jQuery ->
 		timeregex = /^[0-2][0-9]\:[0-5][0-9]/
 		name = $('#register-input').val().toLowerCase().trim();
 		bedtime = $('#register-time').val();
-		sleep = ($('#register-sleep').val() == 'true');
+		sleep = $('#register-sleep').is(':checked')
 		if name.length > 30
 			ga('send', 'event', 'Error', 'Name', name)
 			$('#failure-name').fadeIn()
