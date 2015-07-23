@@ -13,7 +13,7 @@ class HomeController < ApplicationController
 	def register
 		if Site.find_by_name(params[:name])
 			render json: {}, status: 201
-		else Site.create(:name => params[:name])
+    else Site.create(:name => params[:name], :nap=> params[:nap],:bedtime => params[:bedtime])
 			url = "http://#{params[:name]}.herokuapp.com"
 			Rails.logger.info "ping #{Time.now} #{url}"
 			Net::HTTP.get_response(URI.parse(url))

@@ -15,11 +15,20 @@
 		<input id="register-input" type="text" placeholder="app name..."></input>
 		<span id="com">.herokuapp.com</span>
 	</div>
+	<div class="sleeptime">
+    <span>I want a bedtime!</span>
+    <input id="register-sleep" type="checkbox" value="true" checked> 
+		<input id="register-time" type="time" value="00:00">
+    <span>(GMT)</span>
+    <br>
+    <span>Starting August 15, 2015, Heroku requires all free applications to sleep for 6 hours every day.</span>
+	</div>
 	<a id="register" class="button">Give my app a caffeine shot every 30 minutes <%= fa_icon("coffee") %></a>
 
 	<div class="information">
 		<div id="failure" class="info hide failure"><%= fa_icon("thumbs-down") %> Something went wrong.</div>
-		<div id="failure-regex" class="info hide failure"><%= fa_icon("thumbs-down") %> It can only contain letters, numbers, and dashes.</div>
+		<div id="failure-regex" class="info hide failure"><%= fa_icon("thumbs-down") %> Project name can only contain letters, numbers, and dashes.</div>
+  <div id="failure-time-regex" class="info hide failure"><%= fa_icon("thumbs-down") %> Time must have hours, minutes, and AM/PM!</div>
 		<div id="failure-name" class="info hide failure"><%= fa_icon("thumbs-down") %> The string needs to be under 30 characters.</div>
 		<div id="already" class="info hide success"><%= fa_icon("thumbs-up") %> App already added</div>
 		<div id="success" class="info hide success"><%= fa_icon("check") %> Awesome, your app will never fall asleep again :)</div>
