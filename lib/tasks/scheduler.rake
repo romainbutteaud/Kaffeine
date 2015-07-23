@@ -9,7 +9,7 @@ namespace :scheduler do
 			c += 1
 			name = site.name
 			url = "http://#{name}.herokuapp.com"
-            if (site.nap == nil or !site.nap) or 
+            if (site.nap == nil or !site.nap)
                 Rails.logger.info "site doesn't nap. ping #{c}/#{total} (#{site.id}) #{Time.now} #{url}"
                 hydra.queue(Typhoeus::Request.new(url, followlocation: true))
             elsif (6.hours.ago.strftime('%H:%M') <= site.bedtime and Time.now.strftime('%H:%M') >= site.bedtime)
