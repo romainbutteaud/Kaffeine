@@ -15,32 +15,6 @@ jQuery ->
 			ga('send', 'event', 'Error', 'Name', name)
 			$('#failure-regex').fadeIn()
 			$('#unregister-input').addClass('regex-error')
-		else if !time
-			$('#loader_decaf').show()
-			$('#unregister-input').removeClass('regex-error')
-			ga('send', 'event', 'Unregister', 'Name', name)
-			$.ajax '/decaf/',
-			type: 'POST'
-			data:
-				name: name
-				'_method': 'delete'
-			error: (jqXHR) ->
-				$('#loader_decaf').fadeOut()
-				$('#failure').fadeIn()
-				ga('send', 'event', 'Unregister', 'Error')
-			success: (data, textStatus, jqXHR) ->
-				$('#loader_decaf').fadeOut()
-				if jqXHR.status == 201
-					$('#already-removed').fadeIn()
-				else
-					$('#success-removed').fadeIn()
-					new_count = $('#count').data('count') - 1
-					$('#count').data('count', new_count)
-					$('#count').fadeOut(500).fadeIn(500, ->
-						$('#count').html(new_count)
-						$('#count').addClass('count-change')
-					)
-				ga('send', 'event', 'Unregister', 'Success')
 		else
 			$('#loader_decaf').show()
 			$('#unregister-input').removeClass('regex-error')
@@ -52,9 +26,11 @@ jQuery ->
 				'_method': 'delete'
 			error: (jqXHR) ->
 				$('#loader_decaf').fadeOut()
+				console.log "failure delete"
 				$('#failure').fadeIn()
 				ga('send', 'event', 'Unregister', 'Error')
 			success: (data, textStatus, jqXHR) ->
+				console.log "success delete"
 				$('#loader_decaf').fadeOut()
 				if jqXHR.status == 201
 					$('#already-removed').fadeIn()
