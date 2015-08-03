@@ -24,7 +24,7 @@
 	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-ga('create', 'UA-24679492-3', 'kaffeine.herokuapp.com');
+ga('create', 'UA-62786551-3', 'txkaffeine.herokuapp.com');
   // For Localhost
   // ga('create', 'UA-24679492-3', {
   //  'cookieDomain': 'none'

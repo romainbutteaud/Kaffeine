@@ -26,9 +26,11 @@ jQuery ->
 				'_method': 'delete'
 			error: (jqXHR) ->
 				$('#loader_decaf').fadeOut()
+				console.log "failure delete"
 				$('#failure').fadeIn()
 				ga('send', 'event', 'Unregister', 'Error')
 			success: (data, textStatus, jqXHR) ->
+				console.log "success delete"
 				$('#loader_decaf').fadeOut()
 				if jqXHR.status == 201
 					$('#already-removed').fadeIn()
@@ -46,7 +48,10 @@ jQuery ->
 	$(document).on('click', '#register', ( ->
 		$('.info').hide()
 		regex = /^[a-zA-Z0-9\-]+$/
+		timeregex = /^[0-2][0-9]\:[0-5][0-9]/
 		name = $('#register-input').val().toLowerCase().trim();
+		bedtime = $('#register-time').val();
+		sleep = $('#register-sleep').is(':checked')
 		if name.length > 30
 			ga('send', 'event', 'Error', 'Name', name)
 			$('#failure-name').fadeIn()
@@ -55,14 +60,20 @@ jQuery ->
 			ga('send', 'event', 'Error', 'Name', name)
 			$('#failure-regex').fadeIn()
 			$('#register-input').addClass('regex-error')
-		else
-			$('#loader').show()
+  else if sleep and !timeregex.test(bedtime)
+			ga('send', 'event', 'Error', 'Bedtime', bedtime)
+			$('#failure-time-regex').fadeIn()
+			$('#register-input').addClass('regex-error')
+  else
+   $('#loader').show()
 			$('#register-input').removeClass('regex-error')
 			ga('send', 'event', 'Registration', 'Name', name)
 			$.ajax '/register',
 			type: 'POST'
 			data:
 				name: name
+				nap: sleep
+				bedtime: bedtime
 			error: (jqXHR) ->
 				$('#loader').fadeOut()
 				$('#failure').fadeIn()
@@ -80,4 +91,5 @@ jQuery ->
 						$('#count').addClass('count-change')
 					)
 				ga('send', 'event', 'Registration', 'Success')
+                 
 	))
