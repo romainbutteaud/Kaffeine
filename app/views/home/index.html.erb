@@ -1,66 +1,63 @@
 <div id="content">
 
-	<div id="header">
-		<%= image_tag "heroku.png", id: "heroku" %>
-		<span id="plus">+</span>
-		<%= fa_icon "coffee", id: "coffee" %>
-	</div>
+  <div id="header">
+    <%= image_tag "heroku.png", id: "heroku" %>
+    <span id="plus">+</span>
+    <%= fa_icon "coffee", id: "coffee" %>
+  </div>
 
-	<h1><span id="brand">Kaffeine</span> pings your Heroku app every 30 minutes so it will never go to sleep* (<a href="https://blog.heroku.com/archives/2013/6/20/app_sleeping_on_heroku" target="_blank">read more</a>)</h1>
+  <h1><span id="brand">Kaffeine</span> pings your Heroku app every 30 minutes so it will never go to sleep* (<a href="https://blog.heroku.com/archives/2013/6/20/app_sleeping_on_heroku" target="_blank">read more</a>)</h1>
 
-	<h3> Add yours: </h3>
-
-	<div class="url">
-		<span class="http">http://</span>
-		<input id="register-input" type="text" placeholder="app name..."></input>
-		<span id="com">.herokuapp.com</span>
-	</div>
-	<div class="sleeptime">
-    <span>I want a bedtime!</span>
-    <input id="register-sleep" type="checkbox" value="true" checked> 
-		<input id="register-time" type="time" value="00:00">
+  <div class="url">
+    <span class="http">http://</span>
+    <input id="register-input" type="text" placeholder="app name..."></input>
+    <span id="com">.herokuapp.com</span>
+  </div>
+  <div class="sleeptime">
+    <span class="bedtime">I want a bedtime! *</span>
+    <input id="register-sleep" type="checkbox" value="true" checked>
+    <input id="register-time" type="time" value="00:00">
     <span>(GMT)</span>
-    <br>
-    <span>Starting August 15, 2015, Heroku requires all free applications to sleep for 6 hours every day.</span>
-	</div>
-	<a id="register" class="button">Give my app a caffeine shot every 30 minutes <%= fa_icon("coffee") %></a>
+    <p class="sleepinfo">* Starting August 15, 2015, Heroku requires all free applications to sleep for 6 hours every day. (<a href="https://devcenter.heroku.com/articles/dyno-sleeping#quota" target="_blank">read more</a>)</p>
+  </div>
+  <a id="register" class="button">Give my app a caffeine shot every 30 minutes <%= fa_icon("coffee") %></a>
 
-	<div class="information">
-		<div id="failure" class="info hide failure"><%= fa_icon("thumbs-down") %> Something went wrong.</div>
-		<div id="failure-regex" class="info hide failure"><%= fa_icon("thumbs-down") %> Project name can only contain letters, numbers, and dashes.</div>
+  <div class="information">
+    <div id="failure" class="info hide failure"><%= fa_icon("thumbs-down") %> Something went wrong.</div>
+    <div id="failure-regex" class="info hide failure"><%= fa_icon("thumbs-down") %> Project name can only contain letters, numbers, and dashes.</div>
   <div id="failure-time-regex" class="info hide failure"><%= fa_icon("thumbs-down") %> Time must have hours, minutes, and AM/PM!</div>
-		<div id="failure-name" class="info hide failure"><%= fa_icon("thumbs-down") %> The string needs to be under 30 characters.</div>
-		<div id="already" class="info hide success"><%= fa_icon("thumbs-up") %> App already added</div>
-		<div id="success" class="info hide success"><%= fa_icon("check") %> Awesome, your app will never fall asleep again :)</div>
-		<%= image_tag "loader.gif", id: "loader", class: "loader hide" %>
-	</div>
+    <div id="failure-name" class="info hide failure"><%= fa_icon("thumbs-down") %> The string needs to be under 30 characters.</div>
+    <div id="already" class="info hide success"><%= fa_icon("thumbs-up") %> App already added</div>
+    <div id="success" class="info hide success"><%= fa_icon("check") %> Awesome, your app will never fall asleep again :)</div>
+    <%= image_tag "loader.gif", id: "loader", class: "loader hide" %>
+  </div>
 
-	<div id="footer">
-		<span id="info">Already <span id="count" data-count="<%=@count%>"><%= @count %></span> websites love Kaffeine, thanks for sharing!
-		<a href="#decaf" id="unregister-link">remove your app?</a></span>
-		<div id="social">
-			<a id="twitter" class="twitter-share-button social" href="https://twitter.com/share" data-text="Prevent your free Heroku app from ever falling asleep again"></a>
-			<iframe id="github" src="http://ghbtns.com/github-btn.html?user=RomainButteaud&repo=Kaffeine&type=watch&count=true" height="30" width="118" frameborder="0" scrolling="0" style="width:118px; height: 30px;" allowTransparency="true"></iframe>
-		</div>
-	</div>
+  <div id="footer">
+    <span id="info">Already <span id="count" data-count="<%=@count%>"><%= @count %></span> websites love Kaffeine, thanks for sharing!
+    <a href="#decaf" id="unregister-link">remove your app?</a></span>
+    <div id="social">
+      <a id="twitter" class="twitter-share-button social" href="https://twitter.com/share" data-text="Prevent your free Heroku app from ever falling asleep again"></a>
+      <iframe id="github" src="http://ghbtns.com/github-btn.html?user=RomainButteaud&repo=Kaffeine&type=watch&count=true" height="30" width="118" frameborder="0" scrolling="0" style="width:118px; height: 20px;" allowTransparency="true"></iframe>
+    </div>
+  </div>
 
-	<section class="modal--show" id="decaf" tabindex="-1" role="dialog" aria-labelledby="modal-label" aria-hidden="true">
-		<div class="modal-inner">
-			<div class="modal-content">
-				<h2>Remove your app from <span id="brand">Kaffeine</span>.</h2>
-				<div class="url">
-					<span class="http">http://</span>
-					<input id="unregister-input" type="text" placeholder="app name..."></input>
-					<span id="com">.herokuapp.com</span>
-				</div>
-				<a id="unregister" class="button alert">Decaf <%= fa_icon("bed") %></a>
-				<div class="information">
-					<div id="already-removed" class="info hide failure"><%= fa_icon("warning") %> App not found</div>
-					<div id="success-removed" class="info hide failure"><%= fa_icon("minus-circle") %> Your app has been removed.</div>
-					<%= image_tag "loader.gif", id: "loader_decaf", class: "loader hide" %>
-				</div>
-			</div>
-		</div>
-		<a href="#!" class="modal-close" title="Close this modal" data-close="Close" data-dismiss="decaf"></a>
-	</section>
+  <section class="modal--show" id="decaf" tabindex="-1" role="dialog" aria-labelledby="modal-label" aria-hidden="true">
+    <div class="modal-inner">
+      <div class="modal-content">
+        <h2>Remove your app from <span id="brand">Kaffeine</span>.</h2>
+        <div class="url">
+          <span class="http">http://</span>
+          <input id="unregister-input" type="text" placeholder="app name..."></input>
+          <span id="com">.herokuapp.com</span>
+        </div>
+        <a id="unregister" class="button alert">Decaf <%= fa_icon("bed") %></a>
+        <div class="information">
+          <div id="already-removed" class="info hide failure"><%= fa_icon("warning") %> App not found</div>
+          <div id="success-removed" class="info hide failure"><%= fa_icon("minus-circle") %> Your app has been removed.</div>
+          <%= image_tag "loader.gif", id: "loader_decaf", class: "loader hide" %>
+        </div>
+      </div>
+    </div>
+    <a href="#!" class="modal-close" title="Close this modal" data-close="Close" data-dismiss="decaf"></a>
+  </section>
 </div>
