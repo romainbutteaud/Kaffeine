@@ -2,11 +2,19 @@
 a {color:rgb(63,184,232);}
 a:visited {}
 
+body, html {
+  display: table;
+  height: 100%;
+  margin: 0 auto;
+}
+
 #content {
 
-  padding:50px;
+  padding: 50px;
+  margin: 0 auto;
   text-align:center;
-  margin-top:75px;
+  vertical-align: middle;
+  display: table-cell;
   font:13px "Helvetica Neue", Helvetica, Arial, sans-serif;
   color:#333;
 
