@@ -1,0 +1,27 @@
+version: '3.4'
+services:
+  kaffeine:
+    image: kaffeine:latest
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    command: bundle exec rails s -b 0.0.0.0
+    volumes:
+      - .:/app
+    ports:
+      - 3000:3000
+    environment:
+      DATABASE_HOST: postgres
+    depends_on:
+      - postgres
+  postgres:
+    image: postgres:9-alpine
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres:/var/lib/postgresql-9/data
+    environment:
+      LC_ALL: C.UTF-8
+
+volumes:
+  postgres:
