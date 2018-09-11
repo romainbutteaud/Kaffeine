@@ -3,12 +3,12 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-css-modal'
 end
 
-ruby '2.2.0'
+ruby '2.2.10'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.9'
 gem 'rake'
 # Use sqlite3 as the database for Active Record
-gem 'pg'
+gem 'pg', '~> 0.18.1'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
