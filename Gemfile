@@ -5,7 +5,7 @@ end
 
 ruby '2.6.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.9'
+gem 'rails', '5.2.3'
 gem 'rake'
 # Use sqlite3 as the database for Active Record
 gem 'pg'
@@ -41,7 +41,7 @@ gem 'spring',        group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-gem 'quiet_assets', :group => :development
+# gem 'quiet_assets', :group => :development
 gem 'rails_12factor', :group => :production
 gem 'font-awesome-rails'
 gem 'figaro'
