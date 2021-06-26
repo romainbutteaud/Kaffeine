@@ -5,6 +5,7 @@ ENV LC_ALL C.UTF-8
 
 RUN apk add --update --no-cache nodejs build-base libxml2-dev libxslt-dev
 RUN apk add --update --no-cache postgresql-client postgresql-dev ruby-json libcurl tzdata
+RUN apk add shared-mime-info
 
 RUN mkdir /app
 WORKDIR /app
