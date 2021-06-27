@@ -1,10 +1,11 @@
-FROM ruby:2.2-alpine
+FROM ruby:2.6.5-alpine
 
 ENV LANG C.UTF-8
 ENV LC_ALL C.UTF-8
 
 RUN apk add --update --no-cache nodejs build-base libxml2-dev libxslt-dev
 RUN apk add --update --no-cache postgresql-client postgresql-dev ruby-json libcurl tzdata
+RUN apk add shared-mime-info
 
 RUN mkdir /app
 WORKDIR /app

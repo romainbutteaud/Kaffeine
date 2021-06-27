@@ -11,7 +11,7 @@ services:
     ports:
       - 3000:3000
     environment:
-      DATABASE_HOST: postgres
+      DATABASE_URL: postgresql://postgres:postgres@postgres/postgres
     depends_on:
       - postgres
   postgres:
@@ -22,6 +22,7 @@ services:
       - postgres:/var/lib/postgresql-9/data
     environment:
       LC_ALL: C.UTF-8
+      POSTGRES_HOST_AUTH_METHOD: trust  # Only allow in development
 
 volumes:
   postgres:
